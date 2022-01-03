@@ -1,5 +1,6 @@
 import time
 import pandas as pd
+import numpy as np
 from sqlalchemy import create_engine
 from selenium import webdriver
 
@@ -64,4 +65,5 @@ df_write = pd.DataFrame({
     "comment_num": comment_num,
     "movie_describe_list": movie_description_list
 })
-df_write.to_sql("douban_Top250_movie_info", engine)
+df_write.index = np.arange(1, len(df_write)+1)
+df_write.to_sql("douban_top250_movie_info", engine)
