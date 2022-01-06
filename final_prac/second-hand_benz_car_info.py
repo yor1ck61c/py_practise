@@ -57,7 +57,7 @@ def set_second_string(str2, mileage, release_year, release_month, release_area, 
     seller_type = seller_info[1:3]
 
 def set_car_price(car_price):
-    return int(float(car_price.replace("万", "")) * 10000)
+    return int(float(car_price.replace("抢购价", "").replace("万", "")) * 10000)
 
 
 # range(x), 取前x页数据。总数据量为 105 + 56(x-1) 个
@@ -65,7 +65,7 @@ for i in range(6):
     time.sleep(3)
     car_infos = browser.find_element_by_id("goodStartSolrQuotePriceCore0").find_elements_by_css_selector("ul li")
     for car_info in car_infos:
-        str1 = car_info.find_element_by_css_selector("a div+div h4").text
+        str1 = browser.find_element_by_css_selector("a div+div h4").text
         if "奔驰" not in str1:
             continue
         else:
@@ -101,6 +101,19 @@ for i in range(6):
 
         str3 = browser.find_element_by_css_selector("a div+div div span").text
         car_price = set_car_price(str3)
+        print(car_class)
+        print(car_launch_time)
+        print(car_drive_mode)
+        print(is_AMG)
+        print(had_refit)
+        print(is_import)
+        print(mileage)
+        print(release_year)
+        print(release_month)
+        print(release_area)
+        print(seller_time)
+        print(seller_type)
+        print(car_price)
     # 翻页
     browser.find_element_by_id("listpagination").find_element_by_link_text("下一页").click()
 
