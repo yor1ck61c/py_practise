@@ -46,7 +46,8 @@ def set_second_string(str2, mileage, release_year, release_month, release_area, 
     # print(seller_time)
     # print(seller_type)
 
-str2 = "5万公里／2017-05／上海／2年钻石商家 √"
+
+# str2 = "5万公里／2017-05／上海／2年钻石商家 √"
 mileage = 0
 release_year = 2000
 release_month = 6
@@ -64,4 +65,4 @@ print(seller_type)
 
 # 26.98万 √
 # def set_car_price(car_price):
-#     car_price = int(float(car_price.replace("万", "")) * 10000)
+#car_price = int(float(car_price.replace("万", "")) * 10000)
